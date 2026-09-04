@@ -410,6 +410,7 @@ ul {
   font-weight: 600;
   color: #FFFFFF;
   margin-bottom: 1.5rem;
+  animation: float-gentle 4s ease-in-out infinite;
 }
 
 .hero-badge i {
@@ -482,6 +483,7 @@ ul {
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   box-shadow: var(--shadow-md);
+  animation: float-gentle 6s ease-in-out infinite;
 }
 
 .hero-card-preview img {
@@ -503,6 +505,7 @@ ul {
   align-items: center;
   gap: 1rem;
   box-shadow: var(--shadow-glow);
+  animation: float-slow 4.5s ease-in-out infinite 0.5s;
 }
 
 .hero-float-badge i {
@@ -607,6 +610,7 @@ ul {
   border-radius: var(--radius-md);
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4);
+  animation: float-slow 4s ease-in-out infinite 1s;
 }
 
 .about-experience-badge strong {
@@ -1383,6 +1387,7 @@ ul {
 
 .floating-whatsapp {
   background: #25D366;
+  animation: float-whatsapp 3.2s ease-in-out infinite;
 }
 
 .floating-whatsapp:hover {
@@ -1393,6 +1398,7 @@ ul {
 .floating-call {
   background: var(--accent-primary);
   color: #0A0C0F;
+  animation: float-pulse 3.8s ease-in-out infinite 0.4s;
 }
 
 .floating-call:hover {
@@ -1434,6 +1440,46 @@ ul {
   0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7); }
   70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(255, 59, 48, 0); }
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(0.5deg);
+  }
+}
+
+@keyframes float-whatsapp {
+  0%, 100% {
+    transform: translateY(0px);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+  }
+  50% {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6);
+  }
+}
+
+@keyframes float-pulse {
+  0%, 100% {
+    transform: translateY(0px);
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.35);
+  }
+  50% {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 210, 255, 0.6);
+  }
 }
 
 /* Responsive Drawer & Mobile Breakpoints */
