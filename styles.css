@@ -226,14 +226,18 @@ ul {
 }
 
 .navbar.scrolled {
-  background: var(--bg-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(10, 12, 15, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-subtle);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.6);
 }
 
 .nav-container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -243,16 +247,17 @@ ul {
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
+  flex-shrink: 0;
 }
 
 .brand-logo img {
-  height: 52px;
+  height: 46px;
   width: auto;
   border-radius: 6px;
   object-fit: contain;
   background: #FFFFFF;
-  padding: 3px;
+  padding: 2px;
 }
 
 .brand-text {
@@ -262,34 +267,37 @@ ul {
 
 .brand-name {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   font-weight: 800;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
   color: #FFFFFF;
   line-height: 1;
 }
 
 .brand-tagline {
-  font-size: 0.65rem;
-  letter-spacing: 1px;
+  font-size: 0.6rem;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--accent-orange);
   font-weight: 600;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.75rem;
+  margin: 0 auto;
 }
 
 .nav-link {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-muted);
   position: relative;
   padding: 0.5rem 0;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -300,7 +308,8 @@ ul {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 0;
   height: 2px;
   background: var(--accent-orange);
@@ -315,7 +324,14 @@ ul {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.nav-actions .btn {
+  font-size: 0.8rem;
+  padding: 0.6rem 1.2rem;
+  gap: 0.5rem;
 }
 
 .mobile-toggle {
