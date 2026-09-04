@@ -57,6 +57,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -64,7 +67,10 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-main);
   line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  position: relative;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -1430,7 +1436,7 @@ ul {
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
 }
 
-/* Responsive Drawer for Mobile */
+/* Responsive Drawer & Mobile Breakpoints */
 @media (max-width: 991px) {
   .nav-menu {
     position: fixed;
@@ -1457,5 +1463,126 @@ ul {
   
   .nav-actions .btn {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+  
+  .nav-container {
+    padding: 0 1.25rem;
+  }
+  
+  .section-padding {
+    padding: 3.5rem 0;
+  }
+  
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--header-height) + 1.5rem);
+    padding-bottom: 3.5rem;
+  }
+  
+  .hero-title {
+    font-size: 2.25rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 1.75rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  /* Fix negative offsets causing horizontal scroll / black space on mobile */
+  .hero-float-badge {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  
+  .about-experience-badge {
+    position: relative;
+    right: 0;
+    top: 0;
+    margin-top: 1rem;
+    display: block;
+    width: 100%;
+  }
+  
+  .hero-card-preview img {
+    height: 280px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 2.2rem;
+  }
+  
+  .about-highlights {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .floating-actions {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .floating-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-name {
+    font-size: 0.9rem;
+  }
+  
+  .brand-tagline {
+    font-size: 0.55rem;
+    letter-spacing: 1px;
+  }
+  
+  .hero-title {
+    font-size: 1.85rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+  }
+  
+  .contact-buttons-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .contact-buttons-group .btn {
+    width: 100%;
+  }
+  
+  .quote-form-card, .contact-info-box {
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .gallery-item {
+    height: 250px;
   }
 }
