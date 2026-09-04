@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightbox();
   initQuoteForm();
   initBackToTop();
+  initScrollFloatAnimations();
 });
 
 /* --------------------------------------------------------------------------
@@ -135,11 +136,11 @@ function initGalleryFilter() {
           item.style.display = 'block';
           setTimeout(() => {
             item.style.opacity = '1';
-            item.style.transform = 'scale(1)';
+            item.style.transform = 'translateY(0) scale(1)';
           }, 50);
         } else {
           item.style.opacity = '0';
-          item.style.transform = 'scale(0.8)';
+          item.style.transform = 'translateY(20px) scale(0.8)';
           setTimeout(() => {
             item.style.display = 'none';
           }, 300);
@@ -251,4 +252,49 @@ function initBackToTop() {
       });
     });
   }
+}
+
+/* --------------------------------------------------------------------------
+   7. SCROLL FLOAT REVEAL ANIMATIONS
+   -------------------------------------------------------------------------- */
+function initScrollFloatAnimations() {
+  const selectors = [
+    '.section-header',
+    '.stat-card',
+    '.about-image-wrapper',
+    '.about-highlights',
+    '.service-card',
+    '.gallery-item',
+    '.why-card',
+    '.testimonial-card',
+    '.contact-info-box',
+    '.quote-form-card',
+    '.map-wrapper'
+  ];
+
+  selectors.forEach(selector => {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach((el, idx) => {
+      if (!el.classList.contains('scroll-float')) {
+        el.classList.add('scroll-float');
+        const staggerClass = `stagger-${(idx % 4) + 1}`;
+        el.classList.add(staggerClass);
+      }
+    });
+  });
+
+  const floatObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('floated-in');
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  document.querySelectorAll('.scroll-float').forEach(el => {
+    floatObserver.observe(el);
+  });
 }
