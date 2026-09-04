@@ -1437,6 +1437,12 @@ ul {
 }
 
 /* Responsive Drawer & Mobile Breakpoints */
+/* Section Scroll Margins for Fixed Header */
+section {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+/* Responsive Drawer & Mobile Breakpoints */
 @media (max-width: 991px) {
   .nav-menu {
     position: fixed;
@@ -1468,43 +1474,52 @@ ul {
 
 @media (max-width: 768px) {
   .container {
-    padding: 0 1.25rem;
+    padding: 0 1rem;
   }
   
   .nav-container {
-    padding: 0 1.25rem;
+    padding: 0 1rem;
   }
   
   .section-padding {
-    padding: 3.5rem 0;
+    padding: 3rem 0;
   }
   
   .hero {
     min-height: auto;
-    padding-top: calc(var(--header-height) + 1.5rem);
-    padding-bottom: 3.5rem;
+    padding-top: calc(var(--header-height) + 1.25rem);
+    padding-bottom: 3rem;
   }
   
   .hero-title {
-    font-size: 2.25rem;
+    font-size: 2.1rem;
   }
   
   .hero-description {
-    font-size: 1rem;
-    margin-bottom: 1.75rem;
+    font-size: 0.98rem;
+    margin-bottom: 1.5rem;
   }
   
   .section-title {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
   
-  /* Fix negative offsets causing horizontal scroll / black space on mobile */
+  /* Hero Trust Badges Stack Vertically on Mobile */
+  .hero-trust-badges {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding-top: 1.5rem;
+  }
+  
+  /* Fix floating badges causing overflow */
   .hero-float-badge {
     position: relative;
     left: 0;
     bottom: 0;
     margin-top: 1rem;
     width: 100%;
+    box-sizing: border-box;
   }
   
   .about-experience-badge {
@@ -1514,19 +1529,11 @@ ul {
     margin-top: 1rem;
     display: block;
     width: 100%;
+    box-sizing: border-box;
   }
   
   .hero-card-preview img {
-    height: 280px;
-  }
-  
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-  
-  .stat-number {
-    font-size: 2.2rem;
+    height: 250px;
   }
   
   .about-highlights {
@@ -1534,21 +1541,61 @@ ul {
     gap: 1rem;
   }
   
+  /* Smooth Touch-Scrollable Horizontal Gallery Filter Pills on Mobile */
+  .gallery-filter {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  
+  .gallery-filter::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .filter-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    scroll-snap-align: start;
+    padding: 0.5rem 1.1rem;
+    font-size: 0.85rem;
+  }
+
+  /* Compact Floating Actions Bar on Mobile */
   .floating-actions {
     bottom: 1rem;
     right: 1rem;
+    gap: 0.6rem;
   }
   
   .floating-btn {
-    width: 48px;
-    height: 48px;
-    font-size: 1.25rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.15rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
+  /* Stats Cards Grid: 1 column on phones to prevent clipping */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    padding: 1.25rem 1rem;
+  }
+  
+  .stat-number {
+    font-size: 2.2rem;
+  }
+  
   .brand-name {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
   
   .brand-tagline {
@@ -1557,7 +1604,7 @@ ul {
   }
   
   .hero-title {
-    font-size: 1.85rem;
+    font-size: 1.75rem;
   }
   
   .hero-buttons {
@@ -1583,6 +1630,11 @@ ul {
   }
   
   .gallery-item {
-    height: 250px;
+    height: 240px;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
